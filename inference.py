@@ -1,11 +1,10 @@
 import asyncio
 import os
+import sys
 import textwrap
 from typing import List, Optional
 from openai import OpenAI
 
-import sys
-import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'data_cleaning_env'))
 from models import DataCleaningAction, DataCleaningObservation
 from server.data_cleaning_env_environment import DataCleaningEnvironment
@@ -15,8 +14,6 @@ HF_TOKEN = os.getenv("HF_TOKEN")
 API_KEY = HF_TOKEN or os.getenv("API_KEY")
 API_BASE_URL = os.getenv("API_BASE_URL", "https://router.huggingface.co/v1")
 MODEL_NAME = os.getenv("MODEL_NAME", "Qwen/Qwen2.5-72B-Instruct")
-HF_TOKEN = os.getenv("HF_TOKEN")
-API_KEY = HF_TOKEN or os.getenv("API_KEY")
 BENCHMARK = "data_cleaning_env"
 MAX_STEPS = 3
 
