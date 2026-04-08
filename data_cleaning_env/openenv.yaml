@@ -1,0 +1,17 @@
+spec_version: 1
+name: data_cleaning_env
+type: space
+runtime: fastapi
+app: server.app:app
+port: 8000
+description: "A real-world data cleaning environment where an AI agent fixes messy CSV data including wrong date formats, missing values, and duplicate rows."
+tasks:
+  - id: easy
+    description: "Fix date formats to YYYY-MM-DD"
+    difficulty: easy
+  - id: medium
+    description: "Fill in missing values with sensible defaults"
+    difficulty: medium
+  - id: hard
+    description: "Fix dates, missing values, and remove duplicates"
+    difficulty: hard
