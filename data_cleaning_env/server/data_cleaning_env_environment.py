@@ -103,12 +103,13 @@ def grade(submitted: list, expected: list) -> tuple[float, str]:
                     f"Row {i+1} field '{key}': expected '{exp_val}', got '{sub_val}'"
                 )
 
-    score = round(correct_fields / total_fields, 2) if total_fields > 0 else 0.0
-    feedback = (
-        "Perfect!" if score == 1.0
-        else "Issues: " + "; ".join(feedback_lines[:3])  # show first 3 errors
-    )
-    return score, feedback
+    score = round(correct_fields / total_fields, 2) if total_fields > 0 else 0.01
+score = max(0.01, min(0.99, score))
+feedback = (
+    "Almost perfect!" if score >= 0.99
+    else "Issues: " + "; ".join(feedback_lines[:3])
+)
+return score, feedback
 
 
 # ── Environment ───────────────────────────────────────────────────────────────
